@@ -1,52 +1,79 @@
 
 class Stain {
-  contructor (row) {
-    this.row = row;
-  }
-}
-
-
-var colors = ['green','purple','red','yellow','blue']
-
-function setRandomColor (array){
-  var randomColor = array[Math.floor(Math.random()*array.length)]
-  return randomColor
-}
-
-
-setRandomColor (colors)
-
-
-
-function drawRandomColorStain() {
-
-  const brushImageUrl = ``;
-
-  switch (randomColor) {
-    case 'green':
-    brushImageUrl = `./images/${randomColor}-stain.png`;
-    break;
-    case 'purple':
-    brushImageUrl = `./images/${randomColor}-stain.png`;
-    break;
-    case 'red':
-    brushImageUrl = `./images/${randomColor}-stain.png`;  
-    break;
-    case 'yellow':
-    brushImageUrl = `./images/${randomColor}-stain.png`;  
-    break;
-    case 'blue':
-    brushImageUrl = `./images/${randomColor}-stain.png`; 
-  }
-
-  const brushImage = new Image();
-  brushImage.src = brushImageUrl;
-  
-  brushImage.addEventListener('load', () => {
-    context.drawImage(brushImage, 860, 100 , 100, 100)});
+  constructor (game) {
+    this.game = game
+    this.row = 0;
+    this.positionX = 750
   }
   
-drawRandomColorStain()
+  
+  runLogic(){
+    this.positionX -= 1.5
+  }
+  
+drawAllStain(){
+  
+  let colors = ['./images/red-stain.png','./images/yellow-stain.png','./images/green-stain.png','./images/blue-stain.png','./images/purple-stain.png',]
+  
+  for (let i=0; i<5; i++){
+   
+   this.row = i
+   let stainImageUrl = colors[i];
+   let stainImage = new Image();
+   stainImage.src = stainImageUrl;
+   stainImage.addEventListener('load', () => {
+   this.game.context.drawImage(stainImage, this.positionX, this.row * i *26 + 200, 100, 100)});
+   }
+  }
+  
+  
+  
+  
+  /*
+   runLogic () {
+    this.row -= 1.5;
+    }
+  */
+}
+
+/*
+  setRandomColor(){
+    
+    let colors = ['green','purple','red','yellow','blue']
+    let randomColor = colors[Math.floor(Math.random()*colors.length)]
+    let stainImageUrl = ``;
+    
+    switch (randomColor) {
+      
+      case 'green':
+      stainImageUrl = `./images/${randomColor}-stain.png`;
+      break;
+        
+      case 'purple':
+      stainImageUrl = `./images/${randomColor}-stain.png`;
+      break;
+   
+      case 'red':
+      stainImageUrl = `./images/${randomColor}-stain.png`;  
+      break;
+
+      case 'yellow':
+      stainImageUrl = `./images/${randomColor}-stain.png`;  
+      break;
+
+      case 'blue':
+      stainImageUrl = `./images/${randomColor}-stain.png`; 
+      break;
+}
+
+let stainImage = new Image();
+stainImage.src = stainImageUrl;
+
+stainImage.addEventListener('load', () => {
+  this.game.context.drawImage(stainImage, 0, 0 , 100, 100)});
+}*/
+
+
 
 
 
