@@ -2,35 +2,57 @@
 class Brush {
   constructor (game) {
     this.game = game
-    this.row = 2
+    this.positionX = 0
+    this.positionY = 40
+    this.width = 100
+    this.height = 100
+    this.keyStroke()
   }
       
-      moveUp(){
-        if (this.row > 2){
-        this.row--
-        }
-      }
+  moveUp(){
+    if (this.positionX > 0){
+      this.positionX--
+     
 
-      moveDown(){
-        if (this.row < 6){
-        this.row++
-        }
-      }
+    }
+  }
+  
+  moveDown(){
+    if (this.positionX < 4){
+      this.positionX++
       
-      
-      drawPlayer() {
-      
-        const brushImageUrl = './images/paint-brush.png';
-        const brushImage = new Image();
-        brushImage.src = brushImageUrl;
-        
-        brushImage.addEventListener('load', () => {
-          this.game.context.drawImage(brushImage, 40, this.row * 100 , 100, 100)});
-        }
-        
+    }
+  }
+  
+  
+  
+  drawPlayer() {
+    const brushImageUrl = './images/paint-brush.png';
+    const brushImage = new Image();
+    brushImage.src = brushImageUrl;
+    this.game.context.drawImage(brushImage, this.positionY, (this.positionX * 100) + 200, this.width, this.height)
   }
 
-/*
+
+  keyStroke(){
+  window.addEventListener('keydown', (event) => {
+    switch (event.keyCode) {
+    case 40:
+      event.preventDefault();
+      this.moveDown();
+      
+    break;
+    case 38:
+      event.preventDefault();
+      this.moveUp();
+      
+    break;
+  }
+  });
+  }
+}
+
+      /*
 const player = new Brush(0);
 */
 

@@ -4,6 +4,13 @@ const width = $canvas.width;
 const height = $canvas.height;
 
 
+const menu = new Menu($canvas)
+menu.drawMenu()
+
+  /*
+$canvas.addEventListener("click", event => {
+  console.log("click event",event)
+})
 
 
 
@@ -14,7 +21,7 @@ function drawBackground() {
   backgroundImage.src = backgroundImageUrl;
     
   backgroundImage.addEventListener('load', () => {
-  context.drawImage(backgroundImage, 0, 0)});
+    context.drawImage(backgroundImage, 0, 0)});
 
 }
 
@@ -27,21 +34,36 @@ buttonImage.addEventListener('load', () => {
 context.drawImage(buttonImage, 370, 600)});
 /*
 buttonImage.addEventListener('click', () => { 
-  const game = new Game($canvas);
-  game.drawEverything()
 });
-*/
+
 }
-
-
+const game = new Game($canvas);
+game.drawEverything()
+*/
+/*
 function drawMenu() {
   context.clearRect(0,0,900,700);
   drawBackground();
   drawButton();
 }
+  */
+ 
 
-drawMenu()
 
+
+
+/*
+//keyStroke(){
+  window.addEventListener('keydown', (event) => {
+    switch (event.keyCode) {
+      case 13: 
+      const game = new Game($canvas)
+      console.log ('new game')
+      game.drawEverything()
+      console.log ('draw')
+      break;
+    }
+});
 /*
 function testAndExecute(elem, event, area, func){
   // area is relative to page :

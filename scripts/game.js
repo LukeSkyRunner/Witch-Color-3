@@ -1,43 +1,48 @@
 class Game {
-  constructor ($canvas){
-    this.canvas = $canvas
-    this.context = $canvas.getContext('2d')
+  constructor (menu){
+    this.canvas = menu.canvas
+    this.context = menu.context
     this.brush = new Brush(this);
-    this.stain = new Stain(this);
-    this.keyStroke()
+    this.stain = new Stain(this); 
+    this.color = new Color(this);
+    this.gameIsRunning = false;
     
   }
 
 
-drawEverything(){
-  context.clearRect(0,0,900,700);
-  drawGrid()        
-  this.stain.drawAllStain()
+cleanCanvas(){
+  this.context.clearRect(0,0,900,700);
+  //console.log ('i clean canvas')
+}
+
+start(){
+  this.loop()
+  this.color.pickUpRandomText();
+}
+
+
+paint = () => {
+
+  //this.cleanCanvas();
+  this.stain.drawAllStain();
   this.brush.drawPlayer();
-  this.stain.moveColors();
+  this.color.paintRandomText()
+  console.log (`position brush Y ${this.brush.positionY}, X ${this.brush.positionX}`)
+
   
 }
 
-keyStroke(){
-  window.addEventListener('keydown', (event) => {
-    console.log(this.brush)
-    switch (event.keyCode) {
-      case 40:
-        event.preventDefault();
-        this.brush.moveDown();
-        this.drawEverything();
-      break;
-      case 38:
-        event.preventDefault();
-        this.brush.moveUp();
-        this.drawEverything();
-      break;
-    }
-  });
+
+loop = (timestamp) => {
+  this.cleanCanvas()
+  this.paint();
+  this.stain.runLogic();
+  
+  if (this.gameIsRunning != false) {
+    window.requestAnimationFrame(this.loop)
+  } 
+  
 }
 
 
 }
-
-
-

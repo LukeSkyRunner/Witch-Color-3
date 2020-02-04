@@ -2,39 +2,60 @@
 class Stain {
   constructor (game) {
     this.game = game
-    this.row = 0;
-    this.positionX = 750
+    this.positionX = 0;
+    this.positionY = 750
+    this.width = 100
+    this.heght = 100
+    
   }
   
+
   
-  runLogic(){
-    this.positionX -= 1.5
+  drawAllStain(){
+    
+    let colors = ['./images/red-stain.png','./images/yellow-stain.png','./images/green-stain.png','./images/blue-stain.png','./images/purple-stain.png',]
+    
+    for (let i=0; i<5; i++){
+      this.positionX = i
+      let stainImageUrl = colors[i];
+      let stainImage = new Image();
+      stainImage.src = stainImageUrl;
+      this.game.context.drawImage(stainImage, this.positionY, (this.positionX * 100)+200, 100, 100);
+      //console.log(this.row)
+
+      }
   }
-  
-drawAllStain(){
-  
-  let colors = ['./images/red-stain.png','./images/yellow-stain.png','./images/green-stain.png','./images/blue-stain.png','./images/purple-stain.png',]
-  
-  for (let i=0; i<5; i++){
-   
-   this.row = i
-   let stainImageUrl = colors[i];
-   let stainImage = new Image();
-   stainImage.src = stainImageUrl;
-   stainImage.addEventListener('load', () => {
-   this.game.context.drawImage(stainImage, this.positionX, this.row * i *26 + 200, 100, 100)});
-   }
-  }
-  
-  
-  
-  
-  /*
-   runLogic () {
-    this.row -= 1.5;
+    
+
+  checkCollision(){
+     
+    const brush = this.game.brush
+
+     const brushX = brush.positionX
+     const brushY = brush.positionY
+     const brushHeight = brush.height
+
+     
+     const stainY = this.positionY
+ 
+    if (brushY + brushHeight > stainY) {
+      this.game.color.pickUpRandomText();
+      this.positionY = 750
+      if (brushX = 0) {
+        
+      }
     }
-  */
+  }
+  
+    runLogic(){  
+      this.positionY -= 4
+      console.log (`position Y of Stain is now: ${this.positionY}`)
+      this.checkCollision()
+         }
+      
+        
 }
+
 
 /*
   setRandomColor(){
