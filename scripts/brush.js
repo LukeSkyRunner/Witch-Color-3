@@ -2,24 +2,24 @@
 class Brush {
   constructor (game) {
     this.game = game
-    this.positionX = 0
-    this.positionY = 40
-    this.width = 100
-    this.height = 100
+    this.positionY = 0
+    this.positionX = 40
+    this.width = 120
+    this.height = 120
     this.keyStroke()
   }
       
   moveUp(){
-    if (this.positionX > 0){
-      this.positionX--
+    if (this.positionY > 0){
+      this.positionY--
      
 
     }
   }
   
   moveDown(){
-    if (this.positionX < 4){
-      this.positionX++
+    if (this.positionY < 4){
+      this.positionY++
       
     }
   }
@@ -27,10 +27,10 @@ class Brush {
   
   
   drawPlayer() {
-    const brushImageUrl = './images/paint-brush.png';
+    const brushImageUrl = './images/brush.png';
     const brushImage = new Image();
     brushImage.src = brushImageUrl;
-    this.game.context.drawImage(brushImage, this.positionY, (this.positionX * 100) + 200, this.width, this.height)
+    this.game.context.drawImage(brushImage, this.positionX, (this.positionY * 100) + 200, this.width, this.height)
   }
 
 

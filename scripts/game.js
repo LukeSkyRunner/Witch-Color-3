@@ -5,13 +5,14 @@ class Game {
     this.brush = new Brush(this);
     this.stain = new Stain(this); 
     this.color = new Color(this);
+    this.score = new Score(this);
     this.gameIsRunning = false;
     
   }
 
 
 cleanCanvas(){
-  this.context.clearRect(0,0,900,700);
+  this.context.clearRect(0,0,900,720);
   //console.log ('i clean canvas')
 }
 
@@ -20,6 +21,16 @@ start(){
   this.color.pickUpRandomText();
 }
 
+gameOver(){
+  this.gameIsRunning = false
+    const backgroundImageUrl = './images/gameover.jpg';
+    const backgroundImage = new Image();
+    backgroundImage.src = backgroundImageUrl;
+    
+    backgroundImage.addEventListener('load', () => {
+    context.drawImage(backgroundImage, 0, 0)});
+
+}
 
 paint = () => {
 
@@ -27,10 +38,18 @@ paint = () => {
   this.stain.drawAllStain();
   this.brush.drawPlayer();
   this.color.paintRandomText()
-  console.log (`position brush Y ${this.brush.positionY}, X ${this.brush.positionX}`)
+  this.score.paintScore()
+  
+  if (this.score.life <= 0){
+    this.gameOver()
+  } else {
+  this.score.paintLife2()
+  }
+}
+  //console.log (`position brush Y ${this.brush.positionY}, X ${this.brush.positionX}`)
 
   
-}
+
 
 
 loop = (timestamp) => {

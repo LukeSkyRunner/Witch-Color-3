@@ -28,7 +28,7 @@ drawButton() {
 
 
 drawMenu() {
-  this.context.clearRect(0,0,900,700);
+  this.context.clearRect(0,0,900,720);
   this.drawBackground();
   this.drawButton();
   console.log ('drawMenu')
