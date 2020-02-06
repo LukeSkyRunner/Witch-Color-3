@@ -39,11 +39,15 @@ class Brush {
     switch (event.keyCode) {
     case 40:
       event.preventDefault();
+      var snd = new Audio('./sounds/swoosh.mp3'); 
+      snd.play()
       this.moveDown();
       
     break;
     case 38:
       event.preventDefault();
+      var snd = new Audio('./sounds/swoosh.mp3'); 
+      snd.play()
       this.moveUp();
       
     break;

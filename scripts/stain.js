@@ -6,7 +6,7 @@ class Stain {
     this.positionX = 950
     this.width = 100
     this.heght = 100
-    this.speed = 3
+    this.speed = 4
   }
   
 
@@ -57,35 +57,43 @@ class Stain {
  
      if (brushX + brushHeight > stainX + 30) {
        
+      var snd = new Audio('./sounds/bubble.wav'); 
+      
        this.positionX = 950;
-       console.log (brushY)
+       //console.log (brushY)
       if (brushY === 0 && this.game.color.text === 'RED') {
   
         //console.log (`pickUp ${this.game.color.text} in ${brushY}`)
         //console.log ('pickup Red right!')
+        snd.play()
         this.game.score.score += 1;
       } else if (brushY === 1 && this.game.color.text === 'ORANGE') {
   
         //console.log (`pickUp ${this.game.color.text} in ${brushY}`)
         //console.log ('pickup Yellow right!')    
+        snd.play()
         this.game.score.score += 1;
       }   else if (brushY === 2 && this.game.color.text === 'GREEN') {
   
         //console.log (`pickUp ${this.game.color.text} in ${brushY}`)
         //console.log ('pickup Green right!')      
+        snd.play()
         this.game.score.score += 1;
       }     else if (brushY === 3 && this.game.color.text === 'BLUE') {
   
         //console.log (`pickUp ${this.game.color.text} in ${brushY}`)
         //console.log ('pickup Blue right!')       
+        snd.play()
         this.game.score.score += 1;
       }       else if (brushY === 4 && this.game.color.text === 'PURPLE') {
         //console.log (`pickUp ${this.game.color.text} in ${brushY}`)
         //console.log ('pickup Purple right!')        
+        snd.play()
         this.game.score.score += 1;
       } else {
   
-        //console.log ('i m painting a cross')
+        var snd2 = new Audio('./sounds/dropfail.wav'); 
+        snd2.play()//console.log ('i m painting a cross')
         this.game.score.life -= 1
         }
       
@@ -107,9 +115,12 @@ class Stain {
     } else if (this.game.score.score >= 26 && this.game.score.score < 30){
       this.speed = 13
     }*/
-    this.speed *= 1.05
+    if (this.game.score.score < 27) { 
+    this.speed *= 1.025
+    } else {
+      this.speed = 11.76
     }
-  
+  }
 
 
     runLogic(){  

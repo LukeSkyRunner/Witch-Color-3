@@ -1,19 +1,21 @@
-var snd = new Audio('./sounds/musictheme.wav'); 
-var sound = setTimeout(function() {snd.play()}, 5000);
+var snd = new Audio('./sounds/musictheme.mp3'); 
+snd.loop = true
+var sound = setTimeout(function() {snd.play()}, 500);
+
+
 
 
 class Menu {
   constructor ($canvas) {
-   this.canvas = $canvas
-   this.context = $canvas.getContext('2d')
-   this.keyStroke()
-}
-
-
-
-
-playMusic(){
-    this.audioElement.play()
+    this.canvas = $canvas
+    this.context = $canvas.getContext('2d')
+    this.keyStroke()
+  }
+  
+  
+  playMusic(){
+    
+    
 }
 
 drawBackground(){
