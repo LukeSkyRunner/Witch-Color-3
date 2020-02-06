@@ -7,6 +7,7 @@ const height = $canvas.height;
 const menu = new Menu($canvas)
 menu.drawMenu()
 
+
   /*
 $canvas.addEventListener("click", event => {
   console.log("click event",event)

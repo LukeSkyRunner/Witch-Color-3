@@ -3,14 +3,17 @@ class Menu {
    this.canvas = $canvas
    this.context = $canvas.getContext('2d')
    this.keyStroke()
+   this.audioElement = new Audio ()
+   this.audioElement.src = './sounds/musictheme.mp3'
+   
 }
 
 
-playMusicTheme(){
-  var snd = new Audio ("./sounds/musictheme.mp3"); // buffers automatically when created
-  snd.play();
-}
 
+
+playMusic(){
+    this.audioElement.play()
+}
 
 drawBackground(){
     const backgroundImageUrl = './images/menubackground.jpg';
@@ -19,7 +22,7 @@ drawBackground(){
 
     backgroundImage.addEventListener('load', () => {
     context.drawImage(backgroundImage, 0, 0)});
-}
+  }
 
 /*
 drawButton() {
@@ -33,9 +36,10 @@ drawButton() {
 */
 
 drawMenu() {
+  
   this.context.clearRect(0,0,900,720);
+  //this.playMusic()
   this.drawBackground();
-  this.playMusicTheme()
   //this.drawButton();
   console.log ('drawMenu')
 }

@@ -91,20 +91,23 @@ class Stain {
       
       this.game.color.pickUpRandomText();
       this.increaseSpeed()
+      this.game.increaseBackgroundSpeed()
 
     }
   } 
 
   increaseSpeed(){
+    /*
     if (this.game.score.score >= 0 && this.game.score.score < 6) {
-      this.speed = 3
+      this.speed = 4
     } else if (this.game.score.score >= 7 && this.game.score.score < 14) {
-      this.speed = 5
+      this.speed = 6
     } else if (this.game.score.score >= 15 && this.game.score.score < 25){
-      this.speed = 8
-    } else if (this.game.score.score >= 26 && this.game.score.score < 30){
       this.speed = 10
-    }
+    } else if (this.game.score.score >= 26 && this.game.score.score < 30){
+      this.speed = 13
+    }*/
+    this.speed *= 1.05
     }
   
 

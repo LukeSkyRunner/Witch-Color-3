@@ -27,7 +27,7 @@ class Brush {
   
   
   drawPlayer() {
-    const brushImageUrl = './images/magician.png';
+    const brushImageUrl = './images/witch.png';
     const brushImage = new Image();
     brushImage.src = brushImageUrl;
     this.game.context.drawImage(brushImage, this.positionX, (this.positionY * 80) + 240, this.width, this.height)
