@@ -9,7 +9,6 @@ class Game {
     this.gameIsRunning = false;
     this.x = 0
     this.speed = 3
-    
   }
 
 drawGameBackground(){
@@ -26,6 +25,8 @@ cleanCanvas(){
 }
 
 start(){
+  var snd = new Audio("./sounds/witchlaugh.wav")
+  snd.play();
   this.loop()
   this.color.pickUpRandomText();
 }
@@ -61,8 +62,8 @@ paint = () => {
   
   runLogic () {
     this.x -= this.speed;
-    console.log (`the x speed is: ${this.speed}`)
-    console.log (`the speed bb is: ${this.x}`)
+    //console.log (`the x speed is: ${this.speed}`)
+    //console.log (`the speed bb is: ${this.x}`)
     
     if (1592) {
       this.x = this.x % 1592;

@@ -1,11 +1,12 @@
+var snd = new Audio('./sounds/musictheme.wav'); 
+var sound = setTimeout(function() {snd.play()}, 5000);
+
+
 class Menu {
   constructor ($canvas) {
    this.canvas = $canvas
    this.context = $canvas.getContext('2d')
    this.keyStroke()
-   this.audioElement = new Audio ()
-   this.audioElement.src = './sounds/musictheme.mp3'
-   
 }
 
 
@@ -41,7 +42,7 @@ drawMenu() {
   //this.playMusic()
   this.drawBackground();
   //this.drawButton();
-  console.log ('drawMenu')
+  //console.log ('drawMenu')
 }
 
 
@@ -52,7 +53,7 @@ keyStroke(){
         const game = new Game(this)
         game.gameIsRunning = true
         game.start(); 
-        console.log ('game is true')
+        //console.log ('game is true')
         break;
       }
   });
