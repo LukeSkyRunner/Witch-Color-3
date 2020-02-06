@@ -7,8 +7,17 @@ class Game {
     this.color = new Color(this);
     this.score = new Score(this);
     this.gameIsRunning = false;
+    this.x = 0
+    this.speed = this.stain.speed
     
   }
+
+drawGameBackground(){
+  const backgroundImage = new Image();
+  backgroundImage.src = './images/background.jpg';
+  context.drawImage(backgroundImage, this.x, 0);
+  context.drawImage(backgroundImage, 1592 + this.x, 0);
+}
 
 
 cleanCanvas(){
@@ -34,7 +43,8 @@ gameOver(){
 
 paint = () => {
 
-  //this.cleanCanvas();
+  this.cleanCanvas();
+  this.drawGameBackground()
   this.stain.drawAllStain();
   this.brush.drawPlayer();
   this.color.paintRandomText()
@@ -49,13 +59,22 @@ paint = () => {
   //console.log (`position brush Y ${this.brush.positionY}, X ${this.brush.positionX}`)
 
   
-
+  runLogic () {
+    this.x -= this.speed;
+    console.log (`the x speed is: ${this.speed}`)
+    console.log (`the speed bb is: ${this.x}`)
+    
+    if (1592) {
+      this.x = this.x % 1592;
+    }
+  }
 
 
 loop = (timestamp) => {
-  this.cleanCanvas()
+  // this.cleanCanvas()
   this.paint();
   this.stain.runLogic();
+  this.runLogic()
   
   if (this.gameIsRunning != false) {
     window.requestAnimationFrame(this.loop)

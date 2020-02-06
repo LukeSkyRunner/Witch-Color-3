@@ -3,7 +3,7 @@ class Stain {
   constructor (game) {
     this.game = game
     this.positionY = 0;
-    this.positionX = 750
+    this.positionX = 950
     this.width = 100
     this.heght = 100
     this.speed = 3
@@ -13,14 +13,31 @@ class Stain {
   
   drawAllStain(){
     
-    let colors = ['./images/blackcan.png','./images/orangecan.png','./images/greencan.png','./images/bluecan.png','./images/purplecan.png',]
-    
+    let colors = ['./images/redpotion.png','./images/orangepotion.png','./images/greenpotion.png','./images/bluepotion.png','./images/purplepotion.png',]
     for (let i=0; i<5; i++){
       this.positionY = i
+      /*
+      if (this.positionY === 0) {
+        this.game.context.fillStyle = 'black'
+        this.game.context.fillRect(this.positionX + 40, (this.positionY * 100)+285, 900, 25)
+      } else if (this.positionY === 1) {
+        this.game.context.fillStyle = 'orange'
+        this.game.context.fillRect(this.positionX + 40, (this.positionY * 100)+285, 900, 25)     
+      } else if (this.positionY === 2) {
+        this.game.context.fillStyle = 'green'
+        this.game.context.fillRect(this.positionX + 40, (this.positionY * 100)+285, 900, 25)
+      } else if (this.positionY === 3) {
+        this.game.context.fillStyle = 'blue'
+        this.game.context.fillRect(this.positionX + 40, (this.positionY * 100)+285, 900, 25)
+      } else if (this.positionY === 4) {
+        this.game.context.fillStyle = 'purple'
+        this.game.context.fillRect(this.positionX + 40, (this.positionY * 100)+285, 900, 25)
+      }
+    */
       let stainImageUrl = colors[i];
       let stainImage = new Image();
       stainImage.src = stainImageUrl;
-      this.game.context.drawImage(stainImage, this.positionX, (this.positionY * 100)+200, 100, 120);
+      this.game.context.drawImage(stainImage, this.positionX, (this.positionY * 80)+270, 60, 60);
       //console.log(this.row)
 
       }
@@ -38,11 +55,11 @@ class Stain {
      
      const stainX = this.positionX
  
-     if (brushX + brushHeight > stainX) {
+     if (brushX + brushHeight > stainX + 30) {
        
-       this.positionX = 750;
+       this.positionX = 950;
        console.log (brushY)
-      if (brushY === 0 && this.game.color.text === 'BLACK') {
+      if (brushY === 0 && this.game.color.text === 'RED') {
   
         //console.log (`pickUp ${this.game.color.text} in ${brushY}`)
         //console.log ('pickup Red right!')
@@ -68,7 +85,7 @@ class Stain {
         this.game.score.score += 1;
       } else {
   
-        console.log ('i m painting a cross')
+        //console.log ('i m painting a cross')
         this.game.score.life -= 1
         }
       

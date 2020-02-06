@@ -11,17 +11,17 @@ class Color {
 
 pickUpRandomText (){
 
-var textArray = ['BLUE','GREEN','PURPLE','BLACK','ORANGE']
-var colorArray = ['blue','green','purple','black','orange']
+var textArray = ['BLUE','GREEN','PURPLE','RED','ORANGE']
+var colorArray = ['blue','green','purple','red','orange']
 this.text = textArray[Math.floor(Math.random()*textArray.length)];
 this.color = colorArray[Math.floor(Math.random()*colorArray.length)];
 
 }
 
 paintRandomText(){
-this.game.context.font = "bolder 100px Sans-Serif"
+this.game.context.font = "100px fixedsys"
 this.game.context.fillStyle = `${this.color}`;
-this.game.context.fillText(this.text, 250, 130);
+this.game.context.fillText(this.text, 250, 110);
 }
 
 

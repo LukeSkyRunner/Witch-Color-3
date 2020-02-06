@@ -11,16 +11,16 @@ class Score {
 
 paintScore(){
 let scoreString = this.score.toString()
-this.game.context.font = "40px Sans-Serif"
-this.game.context.fillStyle = 'black';
-this.game.context.fillText(`Score: ${scoreString}`, 10, 130);
+this.game.context.font = "40px fixedsys"
+this.game.context.fillStyle = 'white';
+this.game.context.fillText(`Score: ${scoreString}`, 10, 110);
 }
 
 paintLife2(){
 let lifeString = this.life.toString()
-this.game.context.font = "40px Sans-Serif"
-this.game.context.fillStyle = 'black';
-this.game.context.fillText(`Life: ${lifeString}`, 700, 130);
+this.game.context.font = "40px fixedsys"
+this.game.context.fillStyle = 'white';
+this.game.context.fillText(`Life: ${lifeString}`, 700, 110);
 }
 
 paintLife(){

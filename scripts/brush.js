@@ -4,8 +4,8 @@ class Brush {
     this.game = game
     this.positionY = 0
     this.positionX = 40
-    this.width = 120
-    this.height = 120
+    this.width = 100
+    this.height = 100
     this.keyStroke()
   }
       
@@ -27,10 +27,10 @@ class Brush {
   
   
   drawPlayer() {
-    const brushImageUrl = './images/brush.png';
+    const brushImageUrl = './images/magician.png';
     const brushImage = new Image();
     brushImage.src = brushImageUrl;
-    this.game.context.drawImage(brushImage, this.positionX, (this.positionY * 100) + 200, this.width, this.height)
+    this.game.context.drawImage(brushImage, this.positionX, (this.positionY * 80) + 240, this.width, this.height)
   }
 
 
