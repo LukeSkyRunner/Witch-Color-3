@@ -8,7 +8,7 @@ class Game {
     this.score = new Score(this);
     this.gameIsRunning = false;
     this.x = 0
-    this.speed = 3
+    this.speed = 6
   }
 
 drawGameBackground(){
@@ -71,7 +71,7 @@ paint = () => {
   }
 
   increaseBackgroundSpeed(){
-    this.speed *= 1.05
+    this.speed = this.stain.speed
   }
 
 

@@ -6,7 +6,8 @@ class Stain {
     this.positionX = 950
     this.width = 100
     this.heght = 100
-    this.speed = 4
+    this.speed = 6
+    
   }
   
 
@@ -105,21 +106,23 @@ class Stain {
   } 
 
   increaseSpeed(){
-    /*
+    
     if (this.game.score.score >= 0 && this.game.score.score < 6) {
-      this.speed = 4
+      this.speed = 8
     } else if (this.game.score.score >= 7 && this.game.score.score < 14) {
-      this.speed = 6
-    } else if (this.game.score.score >= 15 && this.game.score.score < 25){
       this.speed = 10
+    } else if (this.game.score.score >= 15 && this.game.score.score < 25){
+      this.speed = 12
     } else if (this.game.score.score >= 26 && this.game.score.score < 30){
-      this.speed = 13
-    }*/
+      this.speed = 16
+    }
+    
+    /*
     if (this.game.score.score < 27) { 
     this.speed *= 1.025
     } else {
       this.speed = 11.76
-    }
+    }*/
   }
 
 
